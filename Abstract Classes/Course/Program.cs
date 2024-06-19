@@ -8,23 +8,23 @@ class Program
     static void Main() 
     {
         Console.Write("Enter the number of tax payers: ");
-        int taxPayers = int.Parse(Console.ReadLine());
+        int taxPayers = int.Parse(Console.ReadLine()!);
         List<TaxPayer> taxesPayers = [];
 
         for (int i = 1; i <= taxPayers; i++)
         {
             Console.WriteLine($"Tax payer #{i} data:");
             Console.Write("Individual or company (i/c)? ");
-            char type = char.Parse(Console.ReadLine());
+            char type = char.Parse(Console.ReadLine()!);
             Console.Write("Name: ");
-            string name = Console.ReadLine();
+            string name = Console.ReadLine()!;
             Console.Write("Anual income: ");
-            double income = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            double income = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
 
             if (type == 'i') 
             {
                 Console.Write("Health expenditures: ");
-                double healthExpenditures = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                double healthExpenditures = double.Parse(Console.ReadLine()!, CultureInfo.InvariantCulture);
 
                 Individual individual = new Individual(name, income, healthExpenditures);
                 taxesPayers.Add(individual);
@@ -32,7 +32,7 @@ class Program
             else if (type == 'c')
             {
                 Console.Write("Number of employees: ");
-                int employeesNumber = int.Parse(Console.ReadLine());
+                int employeesNumber = int.Parse(Console.ReadLine()!);
 
                 Company company = new Company(name, income, employeesNumber);
                 taxesPayers.Add(company);
